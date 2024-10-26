@@ -13,7 +13,6 @@ This project is a real-time comments application built with Next.js for the fron
   - [Database Setup](#database-setup)
 - [Running the App](#running-the-app)
 - [Assumptions](#assumptions)
-- [License](#license)
 
 ## Features
 
@@ -98,52 +97,52 @@ This project has two main folders:
   The backend will run on http://localhost:8000 by default.
 
 
-### Database Setup
-
-1. Install MySQL: Ensure you have MySQL installed and running on your machine.
-   
-2. Create a MySQL Database:
-     - Log in to MySQL
-     - Create the database and tables:
-       
-           ```bash
-                CREATE DATABASE IF NOT EXISTS comments_database;
-                USE comments_database;
-                CREATE TABLE IF NOT EXISTS users (
-                  id INT AUTO_INCREMENT PRIMARY KEY,
-                  username VARCHAR(255) NOT NULL,
-                  password VARCHAR(255) NOT NULL
-                );
-                CREATE TABLE IF NOT EXISTS comments (
-                  id INT AUTO_INCREMENT PRIMARY KEY,
-                  user_id INT NOT NULL,
-                  comment TEXT NOT NULL,
-                  timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
-                  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
-                );
-            ```
-3. Update your .env file in the backend directory with the correct database credentials.
-4. Test the Connection: Start the backend server to verify that MySQL is connected without any errors.
-
-By default, the frontend will run on http://localhost:3000.
-
+  ### Database Setup
+  
+  1. Install MySQL: Ensure you have MySQL installed and running on your machine.
+     
+  2. Create a MySQL Database:
+       - Log in to MySQL
+       - Create the database and tables:
+         
+             ```bash
+                  CREATE DATABASE IF NOT EXISTS comments_database;
+                  USE comments_database;
+                  CREATE TABLE IF NOT EXISTS users (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    username VARCHAR(255) NOT NULL,
+                    password VARCHAR(255) NOT NULL
+                  );
+                  CREATE TABLE IF NOT EXISTS comments (
+                    id INT AUTO_INCREMENT PRIMARY KEY,
+                    user_id INT NOT NULL,
+                    comment TEXT NOT NULL,
+                    timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+                    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+                  );
+              ```
+  3. Update your .env file in the backend directory with the correct database credentials.
+  4. Test the Connection: Start the backend server to verify that MySQL is connected without any errors.
+  
+  By default, the frontend will run on http://localhost:3000.
+  
 ##Running the App
 
-###Frontend: 
-
-      ```bash
-          cd frontend
-          npm install
-          npm run dev
-      ```
-
-  ###Backend: 
-
-      ```bash
-          cd backend
-          npm install
-          npx nodemon src/index.ts
-      ```
+  **Frontend**: 
+  
+        ```bash
+            cd frontend
+            npm install
+            npm run dev
+        ```
+  
+  **Backend**: 
+  
+        ```bash
+            cd backend
+            npm install
+            npx nodemon src/index.ts
+        ```
 
 ##Assumptions
 
